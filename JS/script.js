@@ -1,14 +1,14 @@
 let catalogo = [
-    { nombre: "Inception", director: "Christopher Nolan", anioLanzamiento: "2010", categoria: "Ciencia Ficción", genero: "Thriller"},
-    { nombre: "Sueño de Fuga", director: "Frank Darabont", anioLanzamiento: "1994", categoria: "Drama", genero: "Drama" },
-    { nombre: "Star Wars: Episodio IV - Una Nueva Esperanza", director: "George Lucas", anioLanzamiento: "1977", categoria: "Ciencia Ficción", genero: "Aventura" },
-    { nombre: "One Piece", director: "Yasunori Koyama", anioLanzamiento: "1999", categoria: "Animación", genero: "Aventura" },
-    { nombre: "El Padrino", director: "Francis Ford Coppola", anioLanzamiento: "1972", categoria: "Crimen", genero: "Drama" },   
+    { nombre: "Inception", protagonista: "Leonardo DiCaprio", anioLanzamiento: "2010", categoria: "Ciencia Ficción", genero: "Thriller"},
+    { nombre: "Sueño de Fuga", protagonista: "Tim Robbins", anioLanzamiento: "1994", categoria: "Drama", genero: "Drama" },
+    { nombre: "Star Wars: Episodio IV - Una Nueva Esperanza", protagonista: "Mark Hamill", anioLanzamiento: "1977", categoria: "Ciencia Ficción", genero: "Aventura" },
+    { nombre: "One Piece", protagonista: "Monkey D. Luffy", anioLanzamiento: "1999", categoria: "Animación", genero: "Aventura" },
+    { nombre: "El Padrino", protagonista: "Marlon Brando", anioLanzamiento: "1972", categoria: "Crimen", genero: "Drama" },   
 ];
 
 const tablaCatalogo = document.getElementById("tablaCatalogo");
 const nombre = document.getElementById("txtNombre");
-const director = document.getElementById("txtDirector");
+const protagonista = document.getElementById("txtProtagonista");
 const anoLanzamiento = document.getElementById("txtAnoLanzamiento");
 const categoria = document.getElementById("txtCategoria");
 const genero = document.getElementById("txtGenero");
@@ -16,13 +16,13 @@ const agregarBtn = document.getElementById("btnAgregar");
 
 function mostrarCatalogo() {
 
-    tablaCatalogo.innerHTML = ""; //Recordando, primero se vacía la tabla para evitar datos repetidos
+    tablaCatalogo.innerHTML = ""; //Se vacía la tabla antes de mostrar los datos para evitar duplicados
 
     catalogo.forEach((audiovisual)=> {
         tablaCatalogo.innerHTML += `
         <tr>
             <td>${audiovisual.nombre}</td>
-            <td>${audiovisual.director}</td>
+            <td>${audiovisual.protagonista}</td>
             <td>${audiovisual.anioLanzamiento}</td>
             <td>${audiovisual.categoria}</td>
             <td>${audiovisual.genero}</td>
@@ -33,7 +33,7 @@ function mostrarCatalogo() {
 function agregarAudiovisual() {
     const nuevoAudiovisual = {
         nombre: nombre.value,
-        director: director.value,
+        protagonista: protagonista.value,
         anioLanzamiento: anoLanzamiento.value,
         categoria: categoria.value,
         genero: genero.value
@@ -50,7 +50,7 @@ mostrarCatalogo();
 
 function limpiarFormulario() {
     nombre.value = "";
-    director.value = "";
+    protagonista.value = "";
     anoLanzamiento.value = "";
     categoria.value = "";
     genero.value = "";
